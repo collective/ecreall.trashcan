@@ -1,0 +1,66 @@
+Changelog
+=========
+
+1.3.2 (unreleased)
+------------------
+
+- Fix security issue.
+  [thomasdesvenain]
+
+
+1.3.1 (2011-12-22)
+------------------
+
+- Use BooleanIndex for trashed index.
+  [thomasdesvenain]
+
+
+1.3.0 (2011-09-22)
+------------------
+
+- Plone 4.x compatibility.
+
+- Added an Etag for plone.app.registry.
+  [thomasdesvenain]
+
+- We may not acquire a REQUEST in searchResults, fixed it.
+  [vincentfretin]
+
+
+1.2.1 (2010-09-23)
+------------------
+
+- Trashcan message is of 'warning' class.
+
+- Changed label of trashcan warning:
+  exit trashcan button "may not be at the bottom of the page"
+
+- Replaced "five:implements class" directive by "class implements" directive.
+
+- Test if SESSION exists in REQUEST before getting it.
+  It's needed for test environment where you don't have SESSION.
+
+
+1.2 (2009-12-18)
+----------------
+
+- Removed livesearch_reply.py, queryCatalog.py. Now patch directly PloneCatalog with
+  collective.monkeypatcher. This fixes trashed elements seen in collections.
+  This version requires Plone 3.3.
+  [vincentfretin]
+
+
+1.1 (2009-03-11)
+----------------
+
+- Initial public release.
+- Add an empty canTrash script, you can overwrite it in another product.
+- Exclude from nav trashed objects.
+  [vincentfretin]
+
+
+1.0 (2009-02-23)
+----------------
+
+- Created product with ZopeSkel.
+  [Vincent Fretin and Michael Launay]

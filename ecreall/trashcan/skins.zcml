@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="ecreall.trashcan">
+
+   <!-- File System Directory Views registration -->
+   <cmf:registerDirectory
+       name="ecreall_trashcan_templates"/>
+
+</configure>

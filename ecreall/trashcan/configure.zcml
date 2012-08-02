@@ -1,0 +1,85 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="ecreall.trashcan">
+
+  <five:registerPackage package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <include package="five.grok" />
+  <grok:grok package="." />
+
+  <!-- Register the installation GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="Trashcan"
+      directory="profiles/default"
+      description="Trashcan for Plone"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Register the import step -->
+  <genericsetup:importStep
+      name="ecreall.trashcan"
+      title="trashcan handlers"
+      description=""
+      handler="ecreall.trashcan.setuphandlers.import_various" />
+
+  <genericsetup:upgradeStep
+      title="Add catalog indexes"
+      description=""
+      source="1.1"
+      destination="2"
+      handler="ecreall.trashcan.setuphandlers.add_catalog_indexes"
+      profile="ecreall.trashcan:default" />
+
+  <include package="collective.monkeypatcher" />
+
+  <monkey:patch
+      description="Trashcan aware search"
+      class="Products.CMFPlone.CatalogTool.CatalogTool"
+      original="searchResults"
+      replacement=".catalog_monkey.searchResultsTrashed"
+      />
+
+  <monkey:patch
+      description="Trashcan aware search"
+      class="Products.CMFPlone.CatalogTool.CatalogTool"
+      original="__call__"
+      replacement=".catalog_monkey.searchResultsTrashed"
+      />
+
+  <!-- -*- extra stuff goes here -*- -->
+  <include file="skins.zcml" />
+  <interface interface=".interfaces.ITrashed" />
+  <adapter factory=".catalog_monkey.trashed" name="trashed" />
+
+  <include package="zope.annotation" />
+
+  <class class="Products.CMFCore.PortalObject.PortalObjectBase">
+    <implements
+        interface="zope.annotation.interfaces.IAttributeAnnotatable"
+        />
+  </class>
+
+  <class class="Products.Archetypes.public.BaseObject">
+    <implements
+        interface="zope.annotation.interfaces.IAttributeAnnotatable"
+        />
+  </class>
+
+  <genericsetup:upgradeStep
+      title="Use BooleanIndex for trashed index."
+      description="If BooleanIndex is available, replace old FieldIndex by this one"
+      source="2"
+      destination="3"
+      handler="ecreall.trashcan.setuphandlers.upgrade_index"
+      profile="ecreall.trashcan:default" />
+
+</configure>

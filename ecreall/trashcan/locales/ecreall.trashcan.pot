@@ -1,0 +1,59 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-08-31 13:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: ecreall.trashcan\n"
+
+#: ./skins/ecreall_trashcan_templates/folder_trash.cpy:29
+msgid "${items} could not be moved to trashcan."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/folder_restore.cpy:30
+msgid "${items} could not be restored."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/object_trash.py:16
+msgid "${title} has been moved to trashcan."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/object_restore.py:16
+msgid "${title} has been restored."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/folder_trash.cpy:26
+msgid "Item(s) moved to trashcan."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/folder_restore.cpy:27
+msgid "Item(s) restored."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/folder_trash.cpy:20
+msgid "Please select one or more items to move to trashcan."
+msgstr ""
+
+#: ./skins/ecreall_trashcan_templates/folder_restore.cpy:20
+msgid "Please select one or more items to restore."
+msgstr ""
+
+#: ./viewlets_templates/objecttrashedviewlet.pt:5
+msgid "This file is in the trashcan."
+msgstr ""
+
+#: ./viewlets_templates/youareinthetrashcan.pt:5
+msgid "You are in the trashcan. Click on 'close trashcan' to come back in normal mode."
+msgstr ""
+
