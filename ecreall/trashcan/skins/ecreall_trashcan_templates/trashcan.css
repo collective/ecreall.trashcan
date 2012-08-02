@@ -1,0 +1,8 @@
+#trashcan-button{
+    float: right;
+    margin: 0 0.5ex;
+}
+
+#trashcan-button a{
+    text-decoration: none;
+}
