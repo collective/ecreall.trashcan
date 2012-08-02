@@ -1,0 +1,39 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ecreall.trashcan">
+
+  <genericsetup:upgradeStep
+      title="Add catalog indexes"
+      description=""
+      source="1.1"
+      destination="2"
+      handler="ecreall.trashcan.setuphandlers.add_catalog_indexes"
+      profile="ecreall.trashcan:default" />
+
+  <genericsetup:upgradeStep
+      title="Use BooleanIndex for trashed index."
+      description="If BooleanIndex is available, replace old FieldIndex by this one"
+      source="2"
+      destination="3"
+      handler="ecreall.trashcan.setuphandlers.upgrade_index"
+      profile="ecreall.trashcan:default" />
+
+
+  <genericsetup:registerProfile
+      name="v4"
+      title="Migration profile for bonduelle.policy to 4"
+      directory="profiles/upgrades/v4"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      />
+
+  <genericsetup:upgradeStep
+      title="Use viewlets instead of actions"
+      description="Replace document actions by icons to switch in and out trashcan"
+      source="3"
+      destination="4"
+      handler="ecreall.trashcan.setuphandlers.v4"
+      profile="ecreall.trashcan:default" />
+
+</configure>

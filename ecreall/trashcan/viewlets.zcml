@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.favorites">
+
+  <browser:viewlet
+      for="Products.CMFCore.interfaces.IFolderish"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      layer="ecreall.trashcan.interfaces.ILayer"
+      name="trashcan.switch"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class=".viewlets.SwitchTrashcan"
+      permission="zope2.View"
+    />
+
+</configure>

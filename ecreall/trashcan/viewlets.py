@@ -10,6 +10,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from ecreall.trashcan.interfaces import ITrashed, ITrashcanLayer
+from Products.CMFCore.utils import getToolByName
 
 
 PMF = MessageFactory('plone')
@@ -41,13 +42,22 @@ class SwitchTrashcan(ViewletBase):
     index = ViewPageTemplateFile('viewlets_templates/switchtrashcan.pt')
 
     def render(self):
-        if not self.context.unrestrictedTraverse('canTrash')():
+        if not self.can_trash:
             return u""
         else:
             return self.index()
 
     def update(self):
         super(SwitchTrashcan, self).update()
+        context = self.context
+        mtool = getToolByName(context, 'portal_membership')
+        if mtool.isAnonymousUser():
+            self.can_trash = False
+            return
+        else:
+            self.can_trash = context.unrestrictedTraverse('canTrash')() \
+                or mtool.checkPermission('Add portal content', context)
+
         if self.context.unrestrictedTraverse('isTrashcanOpened')():
             self.title = PMF("Close trashcan")
             self.url = self.context.absolute_url() + '/closeTrashcan'
