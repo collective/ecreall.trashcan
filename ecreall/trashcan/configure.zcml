@@ -15,6 +15,10 @@
   <include package="five.grok" />
   <grok:grok package="." />
 
+  <include file="skins.zcml" />
+  <include file="upgrades.zcml" />
+  <include file="viewlets.zcml" />
+
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
@@ -30,14 +34,6 @@
       title="trashcan handlers"
       description=""
       handler="ecreall.trashcan.setuphandlers.import_various" />
-
-  <genericsetup:upgradeStep
-      title="Add catalog indexes"
-      description=""
-      source="1.1"
-      destination="2"
-      handler="ecreall.trashcan.setuphandlers.add_catalog_indexes"
-      profile="ecreall.trashcan:default" />
 
   <include package="collective.monkeypatcher" />
 
@@ -55,8 +51,6 @@
       replacement=".catalog_monkey.searchResultsTrashed"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
-  <include file="skins.zcml" />
   <interface interface=".interfaces.ITrashed" />
   <adapter factory=".catalog_monkey.trashed" name="trashed" />
 
@@ -73,13 +67,5 @@
         interface="zope.annotation.interfaces.IAttributeAnnotatable"
         />
   </class>
-
-  <genericsetup:upgradeStep
-      title="Use BooleanIndex for trashed index."
-      description="If BooleanIndex is available, replace old FieldIndex by this one"
-      source="2"
-      destination="3"
-      handler="ecreall.trashcan.setuphandlers.upgrade_index"
-      profile="ecreall.trashcan:default" />
 
 </configure>

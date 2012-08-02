@@ -8,7 +8,8 @@
 ##title=
 
 from ecreall.trashcan import ITrashedProvidedBy
-
+if not context.canTrash():
+    return False
 
 if ITrashedProvidedBy(context):
     parent = context.getParentNode()

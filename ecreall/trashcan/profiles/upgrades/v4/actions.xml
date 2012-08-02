@@ -18,6 +18,13 @@
    <permission>Delete objects</permission>
   </action>
  </action-provider>
+ <object name="document_actions" meta_type="CMF Action Category">
+  <property name="title"></property>
+  <object name="openTrashcan" meta_type="CMF Action" i18n:domain="plone" remove="True">
+  </object>
+  <object name="closeTrashcan" meta_type="CMF Action" i18n:domain="plone" remove="True">
+  </object>
+ </object>
  <object name="folder_buttons" meta_type="CMF Action Category">
   <property name="title"></property>
   <object name="moveToTrashcan" meta_type="CMF Action" i18n:domain="plone">

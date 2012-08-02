@@ -1,0 +1,10 @@
+<div id="trashcan-button"
+     i18n:domain="ecreall.trashcan" style="float: right;">
+  <a id="switch-trashcan"
+     tal:attributes="href view/url;
+                     title view/title"
+     i18n:attributes="title">
+    <img tal:attributes="src view/icon;
+                         title view/title;" />
+  </a>
+</div>

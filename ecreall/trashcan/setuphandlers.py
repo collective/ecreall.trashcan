@@ -69,3 +69,6 @@ def upgrade_index(context):
         if 'trashed' not in catalog.indexes():
             catalog.addIndex('trashed', 'BooleanIndex')
             catalog.reindexIndex('trashed', context.REQUEST)
+
+def v4(context):
+    context.runAllImportStepsFromProfile('profile-ecreall.trashcan:v4', purge_old=0)

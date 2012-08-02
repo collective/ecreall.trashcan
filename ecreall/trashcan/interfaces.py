@@ -7,4 +7,9 @@ class ITrashed(Interface):
 
 
 class ITrashcanLayer(IDefaultBrowserLayer):
-    pass
+    """Layer when user is in trashcan
+    """
+
+class ILayer(Interface):
+    """Layer when ecreall.trashcan is installed
+    """
