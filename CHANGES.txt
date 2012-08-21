@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- 4.2.1 Compatibility.
+  [thomasdesvenain]
+
 - New UI to open / close trashcan.
   [thomasdesvenain]
 

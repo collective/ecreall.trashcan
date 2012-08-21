@@ -1,5 +1,9 @@
 from OFS.interfaces import IFolder
-from zope.app.publication.interfaces import IBeforeTraverseEvent
+try:
+    from zope.traversing.interfaces import IBeforeTraverseEvent
+except ImportError:
+    from zope.app.publication.interfaces import IBeforeTraverseEvent
+
 from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
 
