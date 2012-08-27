@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.favorites">
+
+  <subscriber for="zope.interface.Interface
+                   OFS.interfaces.IObjectWillBeMovedEvent"
+              handler="ecreall.trashcan.pasteObject" />
+
+  <configure zcml:condition="not-installed zope.app.publication">
+    <subscriber for="OFS.interfaces.IFolder
+                     zope.traversing.interfaces.IBeforeTraverseEvent"
+                handler="ecreall.trashcan.viewlets.enterTrashcanMode" />
+  </configure>
+
+  <configure zcml:condition="installed zope.app.publication">
+    <subscriber for="OFS.interfaces.IFolder
+                     zope.app.publication.interfaces.IBeforeTraverseEvent"
+                handler="ecreall.trashcan.viewlets.enterTrashcanMode" />
+  </configure>
+
+</configure>

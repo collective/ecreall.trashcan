@@ -4,6 +4,9 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Remove grok dependency.
+  [thomasdesvenain]
+
 - 4.2.1 Compatibility.
   [thomasdesvenain]
 

@@ -1,12 +1,6 @@
 from OFS.interfaces import IFolder
 from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
-try:
-    from zope.traversing.interfaces import IBeforeTraverseEvent
-except ImportError:
-    from zope.app.publication.interfaces import IBeforeTraverseEvent
-
-from five import grok
 
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -25,7 +19,6 @@ class YouAreInTheTrashcan(ViewletBase):
     index = ViewPageTemplateFile('viewlets_templates/youareinthetrashcan.pt')
 
 
-@grok.subscribe(IFolder, IBeforeTraverseEvent)
 def enterTrashcanMode(obj, event):
     try:
         if event.request.SESSION.get('trashcan', False):
