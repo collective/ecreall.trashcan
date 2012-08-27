@@ -11,25 +11,23 @@ allow_module('ecreall.trashcan.noLongerProvidesITrashed')
 allow_module('ecreall.trashcan.moveObjectsToTrashcanByPaths')
 allow_module('ecreall.trashcan.restoreObjectsFromTrashcanByPaths')
 
-from zope.interface import alsoProvides, noLongerProvides, Interface
-from ecreall.trashcan.interfaces import ITrashed
-from OFS.interfaces import IFolder
-from five import grok
-from zope.annotation.interfaces import IAnnotations
-from OFS.interfaces import IObjectWillBeMovedEvent
-from AccessControl import Unauthorized
-
-from AccessControl.requestmethod import postonly
 import transaction
-from Products.CMFPlone.utils import transaction_note
-from Products.CMFCore.utils import getToolByName
+from zope.interface import alsoProvides, noLongerProvides, Interface
+from zope.annotation.interfaces import IAnnotations
+from OFS.interfaces import IFolder
+from AccessControl import Unauthorized
+from AccessControl.requestmethod import postonly
 from ZODB.POSException import ConflictError
 
+from Products.CMFPlone.utils import transaction_note
+from Products.CMFCore.utils import getToolByName
 try:
     from Products.PluginIndexes.BooleanIndex.BooleanIndex import BooleanIndex
     HAS_BOOLEANINDEX = True
 except:
     HAS_BOOLEANINDEX = False
+
+from ecreall.trashcan.interfaces import ITrashed
 
 KEY = 'ecreall.trashcan'
 
@@ -68,7 +66,6 @@ def noLongerProvidesITrashed(context):
             noLongerProvidesITrashed(obj)
 
 
-@grok.subscribe(Interface, IObjectWillBeMovedEvent)
 def pasteObject(obj, event):
     if event.newParent is not None and ITrashed.providedBy(event.newParent):
         raise Unauthorized("You can't paste into a trashcan")

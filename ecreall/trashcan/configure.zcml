@@ -68,4 +68,8 @@
         />
   </class>
 
+  <subscriber for="zope.interface.Interface
+                   OFS.interfaces.IObjectWillBeMovedEvent"
+              handler="ecreall.trashcan.pasteObject" />
+
 </configure>

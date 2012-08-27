@@ -1,33 +1,28 @@
 from OFS.interfaces import IFolder
+from zope.interface import alsoProvides
+from zope.i18nmessageid import MessageFactory
 try:
     from zope.traversing.interfaces import IBeforeTraverseEvent
 except ImportError:
     from zope.app.publication.interfaces import IBeforeTraverseEvent
 
-from zope.interface import alsoProvides
-from zope.i18nmessageid import MessageFactory
-
 from five import grok
 
-from plone.app.layout.viewlets.interfaces import IAboveContentBody
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
-from ecreall.trashcan.interfaces import ITrashed, ITrashcanLayer
 from Products.CMFCore.utils import getToolByName
+
+from ecreall.trashcan.interfaces import ITrashcanLayer
 
 
 PMF = MessageFactory('plone')
 
-class ObjectTrashedViewlet(grok.Viewlet):
-    grok.context(ITrashed)
-    grok.viewletmanager(IAboveContentBody)
+class ObjectTrashedViewlet(ViewletBase):
+    index = ViewPageTemplateFile('viewlets_templates/objecttrashedviewlet.pt')
 
 
-class YouAreInTheTrashcan(grok.Viewlet):
-    grok.context(IFolder)
-    grok.layer(ITrashcanLayer)
-    grok.viewletmanager(IAboveContentBody)
+class YouAreInTheTrashcan(ViewletBase):
+    index = ViewPageTemplateFile('viewlets_templates/youareinthetrashcan.pt')
 
 
 @grok.subscribe(IFolder, IBeforeTraverseEvent)

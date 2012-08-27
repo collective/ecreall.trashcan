@@ -13,4 +13,24 @@
       permission="zope2.View"
     />
 
+  <browser:viewlet
+      for="ecreall.trashcan.interfaces.ITrashed"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      layer="ecreall.trashcan.interfaces.ILayer"
+      name="trashcan.objecttrashed"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class=".viewlets.ObjectTrashedViewlet"
+      permission="zope2.View"
+    />
+
+  <browser:viewlet
+      for="Products.CMFCore.interfaces.IFolderish"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      layer="ecreall.trashcan.interfaces.ITrashcanLayer"
+      name="trashcan.intrashcan"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class=".viewlets.YouAreInTheTrashcan"
+      permission="zope2.View"
+    />
+
 </configure>
