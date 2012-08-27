@@ -4,6 +4,10 @@ Changelog
 1.4 (unreleased)
 ----------------
 
+- Optimization: reindex only trashed and object_provides index
+  at trash or restore.
+  [thomasdesvenain]
+
 - Remove grok dependency.
   [thomasdesvenain]
 

@@ -45,7 +45,7 @@ def providesITrashed(context):
 
     alsoProvides(context, ITrashed)
     context.setExcludeFromNav(True)
-    context.reindexObject()
+    context.reindexObject(idxs=['trashed', 'object_provides'])
 
     if IFolder.providedBy(context):
         for obj in context.objectValues():
@@ -60,7 +60,8 @@ def noLongerProvidesITrashed(context):
     if infos['count'] <= 0:
         noLongerProvides(context, ITrashed)
         context.setExcludeFromNav(infos.get('ExcludeFromNav', False))
-        context.reindexObject()
+        context.reindexObject(idxs=['trashed', 'object_provides'])
+
     if IFolder.providedBy(context):
         for obj in context.objectValues():
             noLongerProvidesITrashed(obj)
@@ -69,11 +70,12 @@ def noLongerProvidesITrashed(context):
 def pasteObject(obj, event):
     if event.newParent is not None and ITrashed.providedBy(event.newParent):
         raise Unauthorized("You can't paste into a trashcan")
+
     if ITrashed.providedBy(obj):
         annotations = IAnnotations(obj)
         annotations[KEY] = {'count': 0}
         noLongerProvides(obj, ITrashed)
-        obj.reindexObject()
+        context.reindexObject(idxs=['trashed', 'object_provides'])
 
 
 # Copied from PloneTool.py:deleteObjectsByPaths and adapted to move to trashcan
@@ -88,6 +90,7 @@ def moveObjectsToTrashcanByPaths(self, paths, handle_errors=True,
         # Skip and note any errors
         if handle_errors:
             sp = transaction.savepoint(optimistic=True)
+
         try:
             obj = traverse(path)
             providesITrashed(obj)
@@ -100,6 +103,7 @@ def moveObjectsToTrashcanByPaths(self, paths, handle_errors=True,
                 failure[path] = e
             else:
                 raise
+
     transaction_note('Moved to trashcan %s' % (', '.join(success)))
     return success, failure
 
@@ -117,6 +121,7 @@ def restoreObjectsFromTrashcanByPaths(self, paths, handle_errors=True,
         # Skip and note any errors
         if handle_errors:
             sp = transaction.savepoint(optimistic=True)
+
         try:
             obj = traverse(path)
             if obj.canRestore():
@@ -130,6 +135,7 @@ def restoreObjectsFromTrashcanByPaths(self, paths, handle_errors=True,
                 failure[path] = e
             else:
                 raise
+
     transaction_note('Restored %s' % (', '.join(success)))
     return success, failure
 
