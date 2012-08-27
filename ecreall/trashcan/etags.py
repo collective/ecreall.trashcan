@@ -8,7 +8,6 @@ class TrashcanEtag(object):
         self.request = request
 
     def __call__(self):
-        import pdb;pdb.set_trace()
         session = getattr(self.request, 'SESSION', None)
         trashcan = session and session.get('trashcan', False) or False
         return trashcan and '1' or '0'
