@@ -75,7 +75,7 @@ def pasteObject(obj, event):
         annotations = IAnnotations(obj)
         annotations[KEY] = {'count': 0}
         noLongerProvides(obj, ITrashed)
-        context.reindexObject(idxs=['trashed', 'object_provides'])
+        obj.reindexObject(idxs=['trashed', 'object_provides'])
 
 
 # Copied from PloneTool.py:deleteObjectsByPaths and adapted to move to trashcan
