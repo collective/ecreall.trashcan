@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.4 (unreleased)
+1.4 (2012-09-17)
 ----------------
 
 - Optimization: reindex only trashed and object_provides index
