@@ -1,2 +1,3 @@
 recursive-include ecreall *
 global-exclude *pyc
+include *.txt
