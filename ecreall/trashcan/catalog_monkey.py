@@ -24,7 +24,10 @@ def searchResultsTrashed(self, REQUEST=None, **kw):
         session = None
     else:
         session = getattr(self.REQUEST, 'SESSION', None)
-    kw['trashed'] = session and session.get('trashcan', False) or False
+
+    if 'trashed' not in kw:
+        kw['trashed'] = session and session.get('trashcan', False) or False
+
     return ZCatalog.searchResults(self, REQUEST, **kw)
 
 
