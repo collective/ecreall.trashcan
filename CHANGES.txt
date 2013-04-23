@@ -4,6 +4,9 @@ Changelog
 1.4.2 (unreleased)
 ------------------
 
+- Added api module with shortcut methods.
+  [thomasdesvenain]
+
 - We can force trashed index search.
   [thomasdesvenain]
 
