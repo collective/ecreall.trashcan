@@ -10,6 +10,7 @@
 from ecreall.trashcan import providesITrashed
 from ecreall.trashcan import trashcanMessageFactory as _
 from AccessControl import Unauthorized
+from Products.CMFPlone.utils import safe_unicode
 
 if not context.canTrash():
     raise Unauthorized
@@ -17,6 +18,6 @@ if not context.canTrash():
 providesITrashed(context)
 
 msg = _(u'${title} has been moved to trashcan.',
-        mapping={'title': context.title_or_id()})
+        mapping={'title': safe_unicode(context.title_or_id())})
 context.plone_utils.addPortalMessage(msg)
 context.REQUEST.response.redirect(context.getParentNode().absolute_url())
