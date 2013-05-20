@@ -16,8 +16,11 @@ if not context.canTrash():
     raise Unauthorized
 
 providesITrashed(context)
-
 msg = _(u'${title} has been moved to trashcan.',
         mapping={'title': safe_unicode(context.title_or_id())})
-context.plone_utils.addPortalMessage(msg)
-context.REQUEST.response.redirect(context.getParentNode().absolute_url())
+
+if context.REQUEST.get('ajax_load', False):
+    return context.translate(msg)
+else:
+    context.plone_utils.addPortalMessage(msg)
+    context.REQUEST.response.redirect(context.getParentNode().absolute_url())

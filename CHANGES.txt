@@ -4,6 +4,9 @@ Changelog
 1.4.2 (unreleased)
 ------------------
 
+- Added ajax mode for object_restore and object_trash scripts.
+  [thomasdesvenain]
+
 - Safe unicode for portal messages.
   [thomasdesvenain]
 

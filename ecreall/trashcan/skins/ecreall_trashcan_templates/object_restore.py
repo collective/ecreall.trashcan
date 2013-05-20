@@ -16,8 +16,11 @@ if not context.canTrash():
 
 
 noLongerProvidesITrashed(context)
-
 msg = _(u'${title} has been restored.',
         mapping={'title': safe_unicode(context.title_or_id())})
-context.plone_utils.addPortalMessage(msg)
-context.getParentNode().closeTrashcan()
+
+if context.REQUEST.get('ajax_load', False):
+    return context.translate(msg)
+else:
+    context.plone_utils.addPortalMessage(msg)
+    context.getParentNode().closeTrashcan()
