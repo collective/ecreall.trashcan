@@ -16,7 +16,7 @@ if not context.canTrash():
 
 
 noLongerProvidesITrashed(context)
-msg = _(u'${title} has been restored.',
+msg = _(u"'${title}' has been restored.",
         mapping={'title': safe_unicode(context.title_or_id())})
 
 if context.REQUEST.get('ajax_load', False):

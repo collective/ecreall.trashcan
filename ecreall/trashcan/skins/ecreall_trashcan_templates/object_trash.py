@@ -16,7 +16,7 @@ if not context.canTrash():
     raise Unauthorized
 
 providesITrashed(context)
-msg = _(u'${title} has been moved to trashcan.',
+msg = _(u"'${title}' has been moved to trashcan.",
         mapping={'title': safe_unicode(context.title_or_id())})
 
 if context.REQUEST.get('ajax_load', False):

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ecreall.trashcan\n"
-"POT-Creation-Date: 2011-08-31 13:19+0000\n"
+"POT-Creation-Date: 2013-05-22 15:07+0000\n"
 "PO-Revision-Date: 2009-02-09 15:35+0100\n"
 "Last-Translator: Vincent Fretin <vincentfretin@ecreall.com>\n"
 "Language-Team: French\n"
@@ -23,13 +23,13 @@ msgstr "${items} ne peuvent être déplacé dans la corbeille."
 msgid "${items} could not be restored."
 msgstr "${items} ne peuvent être restaurés."
 
-#: ./skins/ecreall_trashcan_templates/object_trash.py:16
-msgid "${title} has been moved to trashcan."
-msgstr "${title} a été déplacé dans la corbeille."
+#: ./skins/ecreall_trashcan_templates/object_trash.py:19
+msgid "'${title}' has been moved to trashcan."
+msgstr "'${title}' a été déplacé dans la corbeille."
 
-#: ./skins/ecreall_trashcan_templates/object_restore.py:16
-msgid "${title} has been restored."
-msgstr "${title} a été restauré."
+#: ./skins/ecreall_trashcan_templates/object_restore.py:19
+msgid "'${title}' has been restored."
+msgstr "'${title}' a été restauré."
 
 #: ./skins/ecreall_trashcan_templates/folder_trash.cpy:26
 msgid "Item(s) moved to trashcan."
