@@ -1,3 +1,5 @@
-domain=ecreall.trashcan
-msgfmt -o locales/fr/LC_MESSAGES/$domain.mo locales/fr/LC_MESSAGES/$domain.po
-msgfmt -o locales/en/LC_MESSAGES/$domain.mo locales/en/LC_MESSAGES/$domain.po
+domain='ecreall.trashcan'
+
+msgfmt -o ./*/LC_MESSAGES/$domain.mo ./*/LC_MESSAGES/$domain.po
+
+msgfmt -o ./*/LC_MESSAGES/plone.mo ./*/LC_MESSAGES/plone.po

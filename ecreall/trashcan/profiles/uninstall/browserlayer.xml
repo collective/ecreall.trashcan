@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="ecreall.trashcan"
+           interface="ecreall.trashcan.interfaces.ILayer"
+           remove="True" />
+</layers>

@@ -4,6 +4,30 @@ Changelog
 1.4.2 (unreleased)
 ------------------
 
+- Added more metadata package.
+  [macagua]
+
+- Rename README file.
+  [macagua]
+
+- Updated master template and translations.
+  [macagua]
+
+- Added Spanish translation.
+  [macagua]
+
+- Added more improvements about i18n.
+  [macagua]
+
+- Added genericsetup uninstall profile.
+  [macagua]
+
+- Updated bash script for update and generate gettext files.
+  [macagua]
+
+- Added .gitignore file.
+  [macagua]
+
 - Added ajax mode for object_restore and object_trash scripts.
   [thomasdesvenain]
 

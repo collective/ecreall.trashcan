@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="plone">
+ <action-provider name="portal_actions">
+  <action title="Move to trashcan" action_id="moveToTrashcan"
+     i18n:attributes="title"
+     category="object_buttons"
+     condition_expr="python:checkPermission('Delete objects', globals_view.getParentObject()) and object.canTrash() and not globals_view.isPortalOrPortalDefaultPage() and not object.isInTrashcan()"
+     url_expr="string:${object_url}/object_trash" visible="True">
+   <permission>Delete objects</permission>
+  </action>
+  <action title="Restore" action_id="restoreFromTrashcan"
+     i18n:attributes="title"
+     category="object_buttons"
+     condition_expr="python:object.canTrash() and object.canRestore()"
+     url_expr="string:${object_url}/object_restore" visible="True">
+   <permission>Delete objects</permission>
+  </action>
+ </action-provider>
+ <object name="folder_buttons" meta_type="CMF Action Category">
+  <property name="title"></property>
+  <object name="moveToTrashcan" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">Move to trashcan</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:folder_trash:method</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:object.canTrash() and not object.isTrashcanOpened()</property>
+   <property name="permissions">
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="restoreFromTrashcan" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">Restore</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:folder_restore:method</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:object.canTrash() and object.isTrashcanOpened() and not object.isInTrashcan()</property>
+   <property name="permissions">
+   </property>
+   <property name="visible">True</property>
+  </object>
+ </object>
+</object>
