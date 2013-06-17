@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ecreall.trashcan\n"
-"POT-Creation-Date: 2009-02-16 11:10+0000\n"
+"POT-Creation-Date: 2013-06-17 03:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Vincent Fretin <vincentfretin@ecreall.com>\n"
 "Language-Team: French\n"
@@ -14,24 +14,81 @@ msgstr ""
 "Language-Name: French\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+#: ../skins/ecreall_trashcan_templates/folder_trash.cpy:29
+msgid "${items} could not be moved to trashcan."
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/folder_restore.cpy:30
+msgid "${items} could not be restored."
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/object_trash.py:19
+msgid "'${title}' has been moved to trashcan."
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/object_restore.py:19
+msgid "'${title}' has been restored."
+msgstr ""
 
 #. Default: "Close trashcan"
-#: profiles/default/actions.xml
+#: ../viewlets.py:54
 msgid "Close trashcan"
-msgstr "Fermer la corbeille"
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/folder_trash.cpy:26
+msgid "Item(s) moved to trashcan."
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/folder_restore.cpy:27
+msgid "Item(s) restored."
+msgstr ""
 
 #. Default: "Move to trashcan"
-#: profiles/default/actions.xml
+#: ../profiles/default/actions.xml
+#: ../profiles/uninstall/actions.xml
+#: ../profiles/upgrades/v4/actions.xml
 msgid "Move to trashcan"
 msgstr "Déplacer dans la corbeille"
 
 #. Default: "Open trashcan"
-#: profiles/default/actions.xml
+#: ../viewlets.py:58
 msgid "Open trashcan"
-msgstr "Ouvrir la corbeille"
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/folder_trash.cpy:20
+msgid "Please select one or more items to move to trashcan."
+msgstr ""
+
+#: ../skins/ecreall_trashcan_templates/folder_restore.cpy:20
+msgid "Please select one or more items to restore."
+msgstr ""
+
+#. Default: "Removes the Trashcan for Plone"
+#: Uninstall Profile description in configure.zcml
+msgid "Removes the Trashcan for Plone"
+msgstr ""
 
 #. Default: "Restore"
-#: profiles/default/actions.xml
+#: ../profiles/default/actions.xml
+#: ../profiles/uninstall/actions.xml
+#: ../profiles/upgrades/v4/actions.xml
 msgid "Restore"
 msgstr "Restaurer"
+
+#. Default: "Trashcan"
+#: Default Profile title in configure.zcml
+msgid "Trashcan"
+msgstr ""
+
+#. Default: "Trashcan Uninstall Profile"
+#: Uninstall Profile title in configure.zcml
+msgid "Trashcan Uninstall Profile"
+msgstr ""
+
+#. Default: "Trashcan for Plone"
+#: Default Profile description in configure.zcml
+msgid "Trashcan for Plone"
+msgstr ""
 
