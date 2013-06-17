@@ -35,7 +35,7 @@ msgstr "'${title}' a été restauré."
 #: ../viewlets_templates/objecttrashedviewlet.pt:4
 #: ../viewlets_templates/youareinthetrashcan.pt:4
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../skins/ecreall_trashcan_templates/folder_trash.cpy:26
 msgid "Item(s) moved to trashcan."

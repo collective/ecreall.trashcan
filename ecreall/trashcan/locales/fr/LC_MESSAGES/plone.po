@@ -18,32 +18,32 @@ msgstr ""
 
 #: ../skins/ecreall_trashcan_templates/folder_trash.cpy:29
 msgid "${items} could not be moved to trashcan."
-msgstr ""
+msgstr "Impossible de déplacer ${items} dans la corbeille."
 
 #: ../skins/ecreall_trashcan_templates/folder_restore.cpy:30
 msgid "${items} could not be restored."
-msgstr ""
+msgstr "Impossible de restaurer ${items}."
 
 #: ../skins/ecreall_trashcan_templates/object_trash.py:19
 msgid "'${title}' has been moved to trashcan."
-msgstr ""
+msgstr "'${title}' a été déplacé dans la corbeille."
 
 #: ../skins/ecreall_trashcan_templates/object_restore.py:19
 msgid "'${title}' has been restored."
-msgstr ""
+msgstr "'${title}' a été restauré."
 
 #. Default: "Close trashcan"
 #: ../viewlets.py:54
 msgid "Close trashcan"
-msgstr ""
+msgstr "Fermer la corbeille"
 
 #: ../skins/ecreall_trashcan_templates/folder_trash.cpy:26
 msgid "Item(s) moved to trashcan."
-msgstr ""
+msgstr "Élément(s) déplacés dans la corbeille."
 
 #: ../skins/ecreall_trashcan_templates/folder_restore.cpy:27
 msgid "Item(s) restored."
-msgstr ""
+msgstr "Élément(s) restaurés"
 
 #. Default: "Move to trashcan"
 #: ../profiles/default/actions.xml
@@ -55,20 +55,20 @@ msgstr "Déplacer dans la corbeille"
 #. Default: "Open trashcan"
 #: ../viewlets.py:58
 msgid "Open trashcan"
-msgstr ""
+msgstr "Ouvrir la corbeille"
 
 #: ../skins/ecreall_trashcan_templates/folder_trash.cpy:20
 msgid "Please select one or more items to move to trashcan."
-msgstr ""
+msgstr "Veuillez sélectionner un ou plusieurs éléments à déplacer dans la corbeille."
 
 #: ../skins/ecreall_trashcan_templates/folder_restore.cpy:20
 msgid "Please select one or more items to restore."
-msgstr ""
+msgstr "Veuillez sélectionner un ou plusieurs éléments à restaurer."
 
 #. Default: "Removes the Trashcan for Plone"
 #: Uninstall Profile description in configure.zcml
 msgid "Removes the Trashcan for Plone"
-msgstr ""
+msgstr "Retire la corbeille de Plone"
 
 #. Default: "Restore"
 #: ../profiles/default/actions.xml
@@ -80,15 +80,14 @@ msgstr "Restaurer"
 #. Default: "Trashcan"
 #: Default Profile title in configure.zcml
 msgid "Trashcan"
-msgstr ""
+msgstr "Corbeille"
 
 #. Default: "Trashcan Uninstall Profile"
 #: Uninstall Profile title in configure.zcml
 msgid "Trashcan Uninstall Profile"
-msgstr ""
+msgstr "Profil de désinstallation de la corbeille"
 
 #. Default: "Trashcan for Plone"
 #: Default Profile description in configure.zcml
 msgid "Trashcan for Plone"
-msgstr ""
-
+msgstr "Corbeille pour Plone"
