@@ -13,3 +13,11 @@ class ITrashcanLayer(IDefaultBrowserLayer):
 class ILayer(Interface):
     """Layer when ecreall.trashcan is installed
     """
+
+class IObjectTrashedEvent(Interface):
+    """Object has been trashed
+    """
+
+class IObjectRestoredEvent(Interface):
+    """Object has been restored
+    """

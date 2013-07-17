@@ -2,6 +2,8 @@
 """
 
 from zope.i18nmessageid import MessageFactory
+from ecreall.trashcan.events import ObjectTrashedEvent, ObjectRestoredEvent
+from zope.event import notify
 trashcanMessageFactory = MessageFactory('ecreall.trashcan')
 
 from Products.PythonScripts.Utility import allow_module
@@ -10,6 +12,9 @@ allow_module('ecreall.trashcan.providesITrashed')
 allow_module('ecreall.trashcan.noLongerProvidesITrashed')
 allow_module('ecreall.trashcan.moveObjectsToTrashcanByPaths')
 allow_module('ecreall.trashcan.restoreObjectsFromTrashcanByPaths')
+allow_module('ecreall.trashcan.api.trash')
+allow_module('ecreall.trashcan.api.restore')
+allow_module('ecreall.trashcan.api.is_trashed')
 
 import transaction
 from zope.interface import alsoProvides, noLongerProvides, Interface
@@ -45,6 +50,7 @@ def providesITrashed(context):
 
     alsoProvides(context, ITrashed)
     context.setExcludeFromNav(True)
+    notify(ObjectTrashedEvent(context))
     context.reindexObject(idxs=['trashed', 'object_provides'])
 
     if IFolder.providedBy(context):
@@ -61,6 +67,7 @@ def noLongerProvidesITrashed(context):
         noLongerProvides(context, ITrashed)
         context.setExcludeFromNav(infos.get('ExcludeFromNav', False))
         context.reindexObject(idxs=['trashed', 'object_provides'])
+        notify(ObjectRestoredEvent(context))
 
     if IFolder.providedBy(context):
         for obj in context.objectValues():

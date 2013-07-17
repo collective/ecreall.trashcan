@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.4.2 (unreleased)
+1.5.0 (unreleased)
 ------------------
+
+- Trash and restore notify events on content.
+  [thomasdesvenain]
 
 - Added more metadata package.
   [macagua]
