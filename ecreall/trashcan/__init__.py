@@ -26,10 +26,11 @@ from ZODB.POSException import ConflictError
 
 from Products.CMFPlone.utils import transaction_note
 from Products.CMFCore.utils import getToolByName
+
 try:
     from Products.PluginIndexes.BooleanIndex.BooleanIndex import BooleanIndex
     HAS_BOOLEANINDEX = True
-except:
+except ImportError:
     HAS_BOOLEANINDEX = False
 
 from ecreall.trashcan.interfaces import ITrashed

@@ -31,9 +31,9 @@ def add_catalog_indexes(context, logger=None):
     indexes = catalog.indexes()
     # Specify the indexes you want, with ('index_name', 'index_type')
     if HAS_BOOLEANINDEX:
-        wanted = (('trashed', 'FieldIndex'),)
-    else:
         wanted = (('trashed', 'BooleanIndex'),)
+    else:
+        wanted = (('trashed', 'FieldIndex'),)
 
     indexables = []
     for name, meta_type in wanted:
