@@ -76,7 +76,11 @@ def noLongerProvidesITrashed(context):
 
 
 def pasteObject(obj, event):
-    if event.newParent is not None and ITrashed.providedBy(event.newParent):
+    if event.newParent is None:
+        # RemovedObjectEvent
+        return
+
+    if ITrashed.providedBy(event.newParent):
         raise Unauthorized("You can't paste into a trashcan")
 
     if ITrashed.providedBy(obj):
