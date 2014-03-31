@@ -17,7 +17,7 @@ allow_module('ecreall.trashcan.api.restore')
 allow_module('ecreall.trashcan.api.is_trashed')
 
 import transaction
-from zope.interface import alsoProvides, noLongerProvides, Interface
+from zope.interface import alsoProvides, noLongerProvides
 from zope.annotation.interfaces import IAnnotations
 from OFS.interfaces import IFolder
 from AccessControl import Unauthorized

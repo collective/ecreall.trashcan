@@ -1,4 +1,3 @@
-from OFS.interfaces import IFolder
 from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
 
