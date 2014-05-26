@@ -4,6 +4,9 @@ Changelog
 1.5.2 (unreleased)
 ------------------
 
+- HTML: remove title from action img.
+  [thomasdesvenain]
+
 - Don't try to no longer provides ITrashed in pasteObject subscriber if we
   are actually in a RemovedObjectEvent. This fixes removing collective.alias
   content.
