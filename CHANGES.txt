@@ -4,7 +4,12 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use session_data_manager.getSessionData(create=False) to retrieve the
+  session instead of doing request.SESSION because it uses
+  session_data_manager.getSessionData(create=1)
+  and so create a TransientObject for each webdav request (because it
+  doesn't use cookie) and you get finally a "MaxTransientObjectsExceeded:
+  1000 exceeds maximum number of subobjects 1000"
 
 
 1.5.2 (2014-06-02)

@@ -6,6 +6,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
 from ecreall.trashcan.interfaces import ITrashcanLayer
+from ecreall.trashcan.utils import get_session
 
 
 PMF = MessageFactory('plone')
@@ -18,14 +19,14 @@ class YouAreInTheTrashcan(ViewletBase):
     index = ViewPageTemplateFile('viewlets_templates/youareinthetrashcan.pt')
 
 
-def enterTrashcanMode(obj, event):
-    try:
-        if event.request.SESSION.get('trashcan', False):
-            if not ITrashcanLayer.providedBy(event.request):
-                alsoProvides(event.request, ITrashcanLayer)
-    except AttributeError:
-        # in test environment, we don't have SESSION
-        pass
+def enterTrashcanMode(portal, event):
+    session = get_session(portal)
+    if session is None:
+        return
+
+    if session.get('trashcan', False):
+        if not ITrashcanLayer.providedBy(event.request):
+            alsoProvides(event.request, ITrashcanLayer)
 
 
 class SwitchTrashcan(ViewletBase):
