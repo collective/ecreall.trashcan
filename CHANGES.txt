@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.5.3 (unreleased)
-------------------
+1.6 (2014-11-14)
+----------------
 
 - Use session_data_manager.getSessionData(create=False) to retrieve the
   session instead of doing request.SESSION because it uses
