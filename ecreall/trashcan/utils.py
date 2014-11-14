@@ -7,7 +7,7 @@ def get_session(obj):
     # and so create a TransientObject for each webdav request (because it
     # doesn't use cookie) and you get finally a "MaxTransientObjectsExceeded:
     # 1000 exceeds maximum number of subobjects 1000"
-    request = aq_get(obj, 'REQUEST')
+    request = aq_get(obj, 'REQUEST', None)
     if request is None:
         # in test environment, we don't have REQUEST
         return
