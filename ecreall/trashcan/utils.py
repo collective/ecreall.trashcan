@@ -12,7 +12,7 @@ def get_session(obj):
         # in test environment, we don't have REQUEST
         return
 
-    session_data_manager = getattr(obj, 'session_data_manager')
+    session_data_manager = getattr(obj, 'session_data_manager', None)
     if session_data_manager is None:
         # in test environment, we don't have session_data_manager
         return
