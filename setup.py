@@ -29,8 +29,6 @@ long_description = (
     '========\n'
     )
 
-tests_require=['zope.testing']
-
 setup(name='ecreall.trashcan',
       version=version,
       description="Trashcan for Plone. By Ecreall.",
@@ -65,8 +63,11 @@ setup(name='ecreall.trashcan',
                         'collective.monkeypatcher',
                         'Plone >= 3.3',
                         ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      extras_require={
+          'test': [
+              'Products.PloneTestCase',
+          ],
+      },
       test_suite = 'ecreall.trashcan.tests.test_docs.test_suite',
       entry_points="""
       """,
