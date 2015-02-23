@@ -1,5 +1,13 @@
 .. contents::
 
+.. image:: https://secure.travis-ci.org/collective/ecreall.trashcan.png?branch=master
+    :alt: Travis CI badge
+    :target: http://travis-ci.org/collective/ecreall.trashcan
+
+.. image:: https://pypip.in/d/ecreall.trashcan/badge.png
+    :alt: Downloads
+    :target: https://pypi.python.org/pypi/ecreall.trashcan
+
 This is an implementation of a trashcan for Plone.
 This product monkey patch PloneCatalog.searchResults and PloneCatalog.__call__.
 Since version 1.2, this product works only on Plone >= 3.3 (included Plone 4.x).
