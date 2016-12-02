@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.7 (unreleased)
+1.7 (2016-12-02)
 ----------------
 
 - Fix getting the session in etag trashed.
