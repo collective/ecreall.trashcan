@@ -4,6 +4,9 @@ Changelog
 1.7 (unreleased)
 ----------------
 
+- Fix getting the session in etag trashed.
+  [vincentfretin]
+
 - Fix : don't crash if we don't have session_data_manager (e.g. in tests).
   [cedricmessiant]
 
