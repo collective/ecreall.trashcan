@@ -11,6 +11,6 @@ class TrashcanEtag(object):
         self.request = request
 
     def __call__(self):
-        session = get_session(self.published.context)
+        session = get_session(getattr(self.published, 'context', self.published))
         trashcan = session and session.get('trashcan', False) or False
         return trashcan and '1' or '0'
