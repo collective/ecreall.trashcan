@@ -7,5 +7,6 @@
 ##parameters=
 ##title=
 
-session = getattr(context.REQUEST, 'SESSION', None)
+from ecreall.trashcan.utils import get_session
+session = get_session(context)
 return session and session.get('trashcan', False) or False

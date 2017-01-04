@@ -1,5 +1,6 @@
 from Acquisition import aq_get
-
+from Products.PythonScripts.Utility import allow_module
+allow_module('ecreall.trashcan.utils.get_session')
 
 def get_session(obj):
     # Don't use request.SESSION because it uses

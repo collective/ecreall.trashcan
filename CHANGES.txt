@@ -4,7 +4,9 @@ Changelog
 1.7.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- In isTrashcanOpened, use get_session instead of request.SESSION to avoid
+  to create a session object if none exist currently.
+  [vincentfretin]
 
 
 1.7.1 (2016-12-05)
