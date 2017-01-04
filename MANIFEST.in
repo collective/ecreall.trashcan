@@ -1,3 +1,7 @@
 recursive-include ecreall *
 global-exclude *pyc
 include *.txt
+include *.py
+include buildout.cfg
+recursive-include docs *.GPL
+recursive-include docs *.txt
