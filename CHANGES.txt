@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.7.2 (unreleased)
+1.7.2 (2017-01-04)
 ------------------
 
 - In isTrashcanOpened, use get_session instead of request.SESSION to avoid
